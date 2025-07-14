@@ -31,7 +31,7 @@ async function getWeatherData(city, endpoint)
             {
                 Weather: weatherData  // this is the request body
             },
-            { params: { city: city, // this adds ?city=CityName to the URL
+            { params: { city: city, 
                 timeout: 1,} // Setting a very short timeout to simulate a timeout error            
             }  
         );
@@ -40,7 +40,7 @@ async function getWeatherData(city, endpoint)
             const activityResponse = await axios.post( activityURL,
             {Weather: weatherData  // this is the request body
             },
-            {params: { city: city }  // this adds ?city=CityName to the URL
+            {params: { city: city }
             });
         }         
         return activityResponse.data;
