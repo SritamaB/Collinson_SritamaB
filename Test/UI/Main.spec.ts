@@ -26,7 +26,7 @@ test.describe('Weather Service UI Tests', () => {
         await page.fill(locators.CityInput, 'CapeTown'); // Assuming there's an input field with id 'city-input'
         await page.click(locators.GetActvities); // Assuming there's a button with id 'get-weather-button'
         
-        const weatherData = await getWeatherData('CapeTown');
+        const weatherData = await getWeatherData('CapeTown','forecast'); // Fetch weather data for Cape Town
         await helperAssertions.GetActivitiesAsserted(page, weatherData);
     });
 
@@ -55,7 +55,7 @@ test.describe('Weather Service UI Tests', () => {
             }
         }
         await page.click(locators.GetActvities); // Click the button to get activities
-        const weatherData = await getWeatherData('CapeTown');        
+        const weatherData = await getWeatherData('CapeTown','forecast'); // Fetch weather data for Cape Town 
         await helperAssertions.GetActivitiesAsserted(page, weatherData);
     });  
 

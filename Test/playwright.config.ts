@@ -3,8 +3,16 @@ const config = {
   use: {
     headless: true,
     viewport: { width: 1280, height: 720 },
-    baseURL: 'http://localhost:3000', // Adjust to your application's base URL
+    baseURL: 'http://www.activty-rank.com', // Adjust to your application's base URL
+    screenshot: "on",
+        video: "on",
+        trace: "retain-on-failure" 
   },
-  testDir: './tests',
+  testMatch: ["Test/**/*.spec.ts"],
+  reporter: [["dot"], ["json", { outputFile: "jsonReports/test-results.json" }], 
+  ["html", { 
+      outputFolder: "htmlReports",
+      open: "true",
+  }]]
 };
 export default config

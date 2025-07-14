@@ -19,8 +19,6 @@ async function getWeatherData(city, endpoint)
     let activityURL  = `https://api.activity-rank.com/v1/forecast`;
     try {
         const response = await axios.get(url);   
-        const temperature_2m_max = response.data.daily.temperature_2m_max;
-        const temperature_2m_min = response.data.daily.temperature_2m_min;   
         const weatherData = daily.time.map((date, i) => ({
             date,
             min: daily.temperature_2m_min[i],
