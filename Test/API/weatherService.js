@@ -26,23 +26,23 @@ async function getWeatherData(city, endpoint)
         }));      
         
         if (endpoint === 'timeout') {
-             const activityResponse = await axios.get(activityURL, { // Assuming the activity API endpoint doesnt need auth
-            timeout: 1, // Setting a very short timeout to simulate a timeout error
-                params: {
-                Weather: weatherData,
-                city: city,                
-            }});
+         const activityResponse = await axios.post(
+            activityURL,
+            {
+                Weather: weatherData  // this is the request body
+            },
+            { params: { city: city, // this adds ?city=CityName to the URL
+                timeout: 1,} // Setting a very short timeout to simulate a timeout error            
+            }  
+        );
         }
         else {
-            const activityResponse = await axios.get(activityURL, { // Assuming the activity API endpoint doesnt need auth
-                params: {
-                    Weather: weatherData,
-                    city: city,
-                }
+            const activityResponse = await axios.post( activityURL,
+            {Weather: weatherData  // this is the request body
+            },
+            {params: { city: city }  // this adds ?city=CityName to the URL
             });
-        }
-
-         
+        }         
         return activityResponse.data;
     } 
     catch (error) {
