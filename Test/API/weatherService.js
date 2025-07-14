@@ -38,10 +38,8 @@ async function getWeatherData(city, endpoint)
         else {
             const activityResponse = await axios.get(activityURL, { // Assuming the activity API endpoint doesnt need auth
                 params: {
-                    max_temp: temperature_2m_max,
-                    min_temp: temperature_2m_min,
+                    Weather: weatherData,
                     city: city,
-                    date: response.data.daily.time
                 }
             });
         }
