@@ -5,6 +5,7 @@ import * as locators from './locator_paths';
 import config from '../playwright.config'; // Import baseURL from config file
 
 async function GetActivitiesAsserted(page, APIResponse) {
+    expect(await page.locator(locators.CityOutput).textContent()).toBe(APIResponse.city);
     let nthcount = 0; //we use this to track the nth element in the loop assuming there are multiple activities for each date and they all share the same element locators
     for (let i = 0; i < 8; i++) {
         const date = await page.locator(locators.date).nth(i).textContent();

@@ -1,5 +1,6 @@
 module.exports = {
   CityInput: '#city-input',
+  CityOutput: '#city-output',
   GetActvities: '#get-activities-button',
   maxTemp: '#temperature-max',
   minTemp: '#temperature-min',
